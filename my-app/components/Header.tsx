@@ -9,14 +9,18 @@ type HeaderProps = {
 }
 
 const HeaderContainer = styled.div`
+    background: ${props => props.transparent ? 'transparent' : 'aliceblue'};
     display: flex;
-    padding-top: 5%;
+    position: sticky;
+    top: 0;
+    padding-top: 4%;
     padding-left: 15%;
     padding-right: 15%;
     align-items: center;
     justify-content: space-between;
     max-width: 100%;
     overflow-x: hidden;
+    border-bottom: ${props => props.transparent ? null : '2px solid #65bc66'};
 `
 const FlexCol = styled.div`
     display: flex;
@@ -57,7 +61,7 @@ export const Header: React.FC<HeaderProps> = ({ jobPage, login }) => {
     const router = useRouter();
 
     return (
-        <HeaderContainer>
+        <HeaderContainer transparent={!jobPage}>
             <Image src='/Paradigmo_Logo.png' alt='logo' width='64' height='64'/>
             {jobPage && <JobOpenings />}
             {login ? <LoginBtn>Login</LoginBtn> : <LoginBtn onClick={() => router.push('/')} >Back</LoginBtn>}

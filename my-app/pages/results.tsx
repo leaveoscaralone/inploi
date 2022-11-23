@@ -39,7 +39,7 @@ const results = () => {
 
     return (
         <>
-            <Header jobPage />
+        <Header jobPage />
         <Wrapper>
             {results.length ? results.map((hit, idx) => <HitComponent key={idx} hit={hit} handleJobClick={handleClick} />) : <p>No results</p>}
         </Wrapper>
