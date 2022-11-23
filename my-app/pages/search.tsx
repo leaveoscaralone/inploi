@@ -2,8 +2,9 @@ import { useCallback, useState } from 'react'
 import algoliaClient from 'algoliasearch';
 import { debounce } from 'lodash';
 import { useRouter } from 'next/router';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectResults, updateState } from '../redux/resultsSlice';
+import { useDispatch } from 'react-redux';
+import { updateState } from '../redux/resultsSlice';
+import styled from 'styled-components';
 
 
 const algolia = algoliaClient(
@@ -20,7 +21,6 @@ const search = (query: string, params = {}) =>
 
 const Search = () => {
 
-    const results = useSelector(selectResults)
     const [query, setQuery] = useState<string>('')
     const [clicked, toggleClicked] = useState<boolean>(false)
     const router = useRouter();
@@ -36,7 +36,7 @@ const Search = () => {
     )
 
     const handleChange = useCallback(
-        e => {
+        (e: any) => {
             setQuery(e.target.value)
             if (e.target.value.length) updateResults(e.target.value)
         },
@@ -44,7 +44,7 @@ const Search = () => {
     )
     
     const handleClick = useCallback(
-        e => {
+        (e: any) => {
             e.preventDefault()
             toggleClicked(!clicked)
             router.push('/results')
@@ -54,8 +54,8 @@ const Search = () => {
 
     return (
         <div>
-            <input type='search' onChange={handleChange} />
-            <button onClick={handleClick} >submit</button>
+            <input type='search' value={query} onChange={handleChange} />
+            <button type='submit' onClick={handleClick}>submit</button>
         </div>
     )
 }
