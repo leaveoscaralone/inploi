@@ -5,13 +5,13 @@ export const AccordionWrapper = styled.div`
     display: flex;
     flex-direction: column;
     margin-top: 5%;
-    border: 1px solid transparent;
+    border: 1px solid #65bc66;
     border-radius: 10px;
-    background: #f2f2f2;
+    background: mintcream;
     box-shadow: 8px 8px 20px;
     &:hover {
         scale: 1.02;
-        box-shadow: 8px 8px 20px #00ff80;
+        box-shadow: 8px 8px 20px #65bc66;
     }
 `;
 
@@ -25,13 +25,14 @@ export const AccordionHeader = styled.div`
     padding: 0;
     margin: 0;
     &:hover {
-        color: #00ff80;
+        color: #65bc66;
     }
 `;
 
 export const HeaderText = styled.h3`
     margin-left: 10px;
     font-weight: 500;
+    color: lightslategrey;
 `;
 
 export const AccordionInfo = styled.div`
@@ -54,7 +55,7 @@ export const StyledButton = styled.button`
     width: 25px;
 
     &:hover {
-        color: #00ff80;
+        color: #65bc66;
     }
 
     &:focus {
@@ -64,7 +65,11 @@ export const StyledButton = styled.button`
 
 export const Descritpion = styled.p`
     color: grey;
-    padding: 0 20px;
+    margin: 0 15px;
+    padding: 10px 10px;
+    border: 1px solid #65bc66;
+    border-radius: 10px;
+    background-color: aliceblue;
 `;
 
 export const Country = styled.p`
@@ -73,14 +78,14 @@ export const Country = styled.p`
 
 export const ApplyBtn = styled.button`
     background-color: white;
-    border: 1px solid black;
+    border: 1px solid #65bc66;
     border-radius: 10px;
     margin-top: 12px;
     height: 25px;
     cursor: pointer;
-    color: black;
+    color: #77889;
     &:hover {
-        background-color: #00ff80;
+        background-color: #65bc66;
         color: white;
         border: 1px solid transparent;
     }

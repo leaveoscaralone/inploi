@@ -7,3 +7,8 @@ export const Container = styled.div`
   max-height: 100%;
   height: 100vh;
 `;
+
+export const Title = styled.h1`
+  white-space: pre-wrap;
+  text-align: center;
+  `;

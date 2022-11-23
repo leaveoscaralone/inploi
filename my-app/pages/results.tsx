@@ -3,14 +3,16 @@ import { selectResults } from '../redux/resultsSlice';
 import { HitComponent } from '../components/HitComponent';
 import { HitProps } from '../components/HitComponent';
 import styled from 'styled-components';
+import { Header } from '../components/Header';
 
 const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
-    margin-top: 5%;
+    margin-top: 1%;
     margin-bottom: 5%;
     margin-left: 30%;
     margin-right: 30%;
+    min-height: 100vh;
 `
 
 const results = () => {
@@ -26,17 +28,22 @@ const results = () => {
                 if (!!descVisibility || !isJobSelected) {
                     desc.style.maxHeight = null;
                     job.style.fontWeight = '500';
+                    job.style.color = null;
                 } else {
                     desc.style.maxHeight = desc.scrollHeight + 'px';
                     job.style.fontWeight = '700';
+                    job.style.color = '#65bc66';
                 }
         })
         }
 
     return (
+        <>
+            <Header jobPage />
         <Wrapper>
             {results.length ? results.map((hit, idx) => <HitComponent key={idx} hit={hit} handleJobClick={handleClick} />) : <p>No results</p>}
         </Wrapper>
+        </>
     )
 }
 

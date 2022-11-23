@@ -8,8 +8,8 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: #cccccc;
-    border: 4px solid #00ff80;
+    background: aliceblue;
+    border: 4px solid #65bc66;
     justify-content: center;
     align-items: center;
     font-family: arial;

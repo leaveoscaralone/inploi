@@ -1,24 +1,66 @@
 import Image from 'next/image'
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
+import { Title } from '../styles/sharedStyles';
 
+type HeaderProps = {
+    jobPage?: boolean;
+    login?: boolean;
+}
 
 const HeaderContainer = styled.div`
     display: flex;
     padding-top: 5%;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 15%;
+    padding-right: 15%;
     align-items: center;
     justify-content: space-between;
     max-width: 100%;
     overflow-x: hidden;
 `
+const FlexCol = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+const CenteredP = styled.p`
+    text-align: center;
+`
+const LoginBtn = styled.button`
+    background-color: #65bc66;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    cursor: pointer;
+    height: 30px;
+    width: 60px;
+    color: white;
 
-export const Header = () => {
+    &:hover {
+        background-color: white;
+        color: #65bc66;
+        border: 1px solid #65bc66;
+    }
+`
+const JobTitle = styled(Title)`
+    color: #65bc66;
+`
+
+const JobOpenings: React.FC = () => {
+    return (
+        <FlexCol>
+        <JobTitle>Job Openings</JobTitle>
+        <CenteredP>Here are the results of your search</CenteredP>
+        </FlexCol>
+    )
+}
+
+export const Header: React.FC<HeaderProps> = ({ jobPage, login }) => {
+    const router = useRouter();
 
     return (
         <HeaderContainer>
             <Image src='/Paradigmo_Logo.png' alt='logo' width='64' height='64'/>
-            <button>Login</button>
+            {jobPage && <JobOpenings />}
+            {login ? <LoginBtn>Login</LoginBtn> : <LoginBtn onClick={() => router.push('/')} >Back</LoginBtn>}
         </HeaderContainer>
     )
 }
