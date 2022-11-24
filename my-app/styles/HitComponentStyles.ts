@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 
+type AccordionInfoProps = {
+    id: number;
+}
 
 export const AccordionWrapper = styled.div`
     display: flex;
@@ -35,7 +38,7 @@ export const HeaderText = styled.h3`
     color: lightslategrey;
 `;
 
-export const AccordionInfo = styled.div`
+export const AccordionInfo = styled.div<AccordionInfoProps>`
     margin: 8px, 0;
     max-height: 0;
     overflow: hidden;
