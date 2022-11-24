@@ -106,7 +106,7 @@ const Search = () => {
     return (
         <Wrapper>
         <SearchBar>
-            <SearchInput type='search' placeholder='Find your dream job' value={query} onChange={handleChange} />
+            <SearchInput type='search' placeholder='Search for your dream job' value={query} onChange={handleChange} />
             <Submit type='submit' onClick={handleClick}>
             {<AiOutlineSearch/>}
             </Submit>
