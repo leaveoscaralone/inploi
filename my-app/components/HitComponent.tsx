@@ -36,7 +36,7 @@ export const HitComponent: React.FC<HitProps> = ({ hit, handleJobClick }) => {
                 <HeaderText>{hit.company_name}</HeaderText>
                 <StyledButton>{isActive ? '-' : '+'}</StyledButton>
             </AccordionHeader>
-            <AccordionInfo id={hit.id} className='descriptions'>
+            <AccordionInfo id={String(hit.id)} className='descriptions'>
                 <Descritpion>{hit.description}</Descritpion>
                 <FlexDiv>
                     <Country>{hit.country}</Country>

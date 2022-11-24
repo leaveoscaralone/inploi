@@ -38,7 +38,7 @@ export const HeaderText = styled.h3`
     color: lightslategrey;
 `;
 
-export const AccordionInfo = styled.div<AccordionInfoProps>`
+export const AccordionInfo = styled.div`
     margin: 8px, 0;
     max-height: 0;
     overflow: hidden;
