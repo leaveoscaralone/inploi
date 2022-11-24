@@ -14,7 +14,7 @@ export const resultsSlice = createSlice({
     name: 'results',
     initialState,
     reducers: {
-        updateState: (state, action: PayloadAction<[]>) => {
+        updateState: (state, action: PayloadAction<any>) => {
             state.results = action.payload
         }
     }
