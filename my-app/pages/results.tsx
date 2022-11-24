@@ -24,15 +24,16 @@ const results = () => {
             const job = jobs[idx].querySelector('h3')
             const descVisibility = desc.style.maxHeight;
             const isJobSelected = parseInt(desc.id) === hit.id;
-
-                if (!!descVisibility || !isJobSelected) {
-                    desc.style.maxHeight = null;
-                    job.style.fontWeight = '500';
-                    job.style.color = null;
-                } else {
-                    desc.style.maxHeight = desc.scrollHeight + 'px';
-                    job.style.fontWeight = '700';
-                    job.style.color = '#65bc66';
+                if (job) {
+                    if (!!descVisibility || !isJobSelected) {
+                        desc.style.maxHeight = null;
+                        job.style.fontWeight = '500';
+                        job.style.color = '';
+                    } else {
+                        desc.style.maxHeight = desc.scrollHeight + 'px';
+                        job.style.fontWeight = '700';
+                        job.style.color = '#65bc66';
+                    }
                 }
         })
         }
