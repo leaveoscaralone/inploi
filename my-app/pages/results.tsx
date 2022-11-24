@@ -20,7 +20,7 @@ const results = () => {
     const handleClick = (hit: HitProps['hit']) => {
         const descriptions = Array.from(document.querySelectorAll('.descriptions'))
         const jobs = Array.from(document.querySelectorAll('.jobs'))
-        descriptions.forEach((desc: Element, idx: number) => {
+        descriptions.forEach((desc: any, idx: number) => {
             const job = jobs[idx].querySelector('h3')
             const descVisibility = desc.style.maxHeight;
             const isJobSelected = parseInt(desc.id) === hit.id;
