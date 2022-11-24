@@ -3,24 +3,25 @@ import Search from './search'
 import { Container } from '../styles/sharedStyles';
 import styled from 'styled-components';
 import { Title } from '../styles/sharedStyles';
+import { FcLike } from 'react-icons/fc';
 
 
 const Section = styled.section`
   display: flex;
-  padding-top: 10%;
+  padding-top: 7%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 1.5rem;
+  text-align: center;
 `
-
-const text = 'Find a job you love \n with Paradigmo'
 
 export default function Home() {
   return (
     <Container>
       <Header login />
       <Section>
-        <Title>{text}</Title>
+        <Title>Find a job you love <FcLike/> <br/> with Paradigmo</Title>
         <Search/>
       </Section>
     </Container>

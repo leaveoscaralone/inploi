@@ -1,10 +1,12 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react';
 import algoliaClient from 'algoliasearch';
 import { debounce } from 'lodash';
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
 import { updateState } from '../redux/resultsSlice';
 import styled from 'styled-components';
+import { AiOutlineSearch } from 'react-icons/ai';
+
 
 
 const algolia = algoliaClient(
@@ -18,6 +20,42 @@ const search = (query: string, params = {}) =>
         hitsPerPage: 20,
         ...params
     })
+
+const Wrapper = styled.div`
+    width: 100%;
+    max-width: 480px;
+    margin: 0, 95px auto;
+`;
+
+const SearchBar = styled.div`
+    width: 100%;
+    display: flex;
+    align-items: center;
+`;
+
+const SearchInput = styled.input`
+    width: 100%;
+    height: 50px;
+    background: aliceblue;
+    outline: none;
+    border: none;
+    border-radius: 28px;
+    padding: 0 55px 0 25px;
+    font-size: 15px;
+    &:focus {
+        outline: 1.5px solid #65bc66;
+    }
+`;
+
+const Submit = styled.button`
+    cursor: pointer;
+    width: 55px;
+    height: 45px;
+    margin-left: -55px;
+    background: none;
+    border: none;
+    outline: none;
+`
 
 const Search = () => {
 
@@ -50,13 +88,30 @@ const Search = () => {
             router.push('/results')
         },
         [clicked]
-    )
+    );
+
+    useEffect(() => {
+        const keyDownHandler = (e: any) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                router.push('/results');
+            }
+        }
+        document.addEventListener('keydown', keyDownHandler);
+        return () => {
+            document.removeEventListener('keydown', keyDownHandler);
+        }
+    }, [])
 
     return (
-        <div>
-            <input type='search' value={query} onChange={handleChange} />
-            <button type='submit' onClick={handleClick}>submit</button>
-        </div>
+        <Wrapper>
+        <SearchBar>
+            <SearchInput type='search' value={query} onChange={handleChange} />
+            <Submit type='submit' onClick={handleClick}>
+            {<AiOutlineSearch/>}
+            </Submit>
+        </SearchBar>
+        </Wrapper>
     )
 }
 
