@@ -1,5 +1,6 @@
 # inploi
 technical challenge
+Built using Next.js, Typescript, Redux and StyledComponents with Algolia InstantSearch API.
 
 To run locally:
 - clone repo
